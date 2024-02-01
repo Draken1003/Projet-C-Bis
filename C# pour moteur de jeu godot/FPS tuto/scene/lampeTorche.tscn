@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2kox5grcpwrl"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ayt2m"]
+
+[node name="lampeTorche" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.154493, 0, 0, 0, -9.96021e-09, -0.154493, 0, 0.227863, -6.7531e-09, 0, 0, 0.109771)
+mesh = SubResource("CylinderMesh_ayt2m")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.237475, 0, 0, 0, -2.25088e-09, -0.237475, 0, 0.0514941, -1.03804e-08, 0, 0, -0.166787)
+mesh = SubResource("CylinderMesh_ayt2m")
+
+[node name="lumiere" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.190415)
+light_energy = 4.0
+spot_range = 132.347
+spot_angle = 16.1856

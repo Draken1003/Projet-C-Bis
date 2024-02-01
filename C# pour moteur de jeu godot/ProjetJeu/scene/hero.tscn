@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyla5mhyt8e5b"]
+
+[ext_resource type="Texture2D" uid="uid://dfrymch2idc4b" path="res://icon.svg" id="1_8o3pp"]
+[ext_resource type="Script" path="res://script/hero.cs" id="1_506oy"]
+
+[node name="hero" type="Node2D"]
+script = ExtResource("1_506oy")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 335.0
+offset_top = 114.0
+offset_right = 375.0
+offset_bottom = 154.0
+scale = Vector2(5.24, 2.08)
+
+[node name="IconPerso" type="Sprite2D" parent="Panel"]
+position = Vector2(7.82442, 20.6731)
+scale = Vector2(0.107347, 0.270433)
+texture = ExtResource("1_8o3pp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 17.1756
+offset_right = 65.1756
+offset_bottom = 86.0
+scale = Vector2(0.205589, 0.455666)
+alignment = 1
+
+[node name="Nom" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Godot"
+
+[node name="Atk2" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "ATK :"
+vertical_alignment = 1
+
+[node name="Atk" type="Label" parent="Panel/VBoxContainer/Atk2"]
+layout_mode = 2
+offset_left = 40.8397
+offset_top = -0.181973
+offset_right = 88.8397
+offset_bottom = 22.818
+theme_override_font_sizes/font_size = 14
+text = "0"
+vertical_alignment = 1
+
+[node name="Lvl" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "lvl :"
+
+[node name="Level" type="Label" parent="Panel/VBoxContainer/Lvl"]
+layout_mode = 2
+offset_left = 29.0959
+offset_top = 0.250412
+offset_right = 77.0959
+offset_bottom = 26.2504
+theme_override_font_sizes/font_size = 14
+text = "0"

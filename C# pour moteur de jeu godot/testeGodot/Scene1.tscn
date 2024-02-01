@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://gi7ahnug1jes"]
+
+[ext_resource type="Texture2D" uid="uid://btyj4f3yqdxdn" path="res://icon.svg" id="1_4b38l"]
+[ext_resource type="Script" path="res://Script/Player.cs" id="2_f4tjf"]
+[ext_resource type="Script" path="res://Script/PlayerInput.cs" id="3_e2ywe"]
+[ext_resource type="Script" path="res://Script/CharacterBody2D.cs" id="4_djwrm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yt1l"]
+size = Vector2(128, 128)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Input" type="Node" parent="."]
+script = ExtResource("3_e2ywe")
+
+[node name="Player" type="Sprite2D" parent="." node_paths=PackedStringArray("_input", "_motor")]
+texture = ExtResource("1_4b38l")
+script = ExtResource("2_f4tjf")
+_input = NodePath("../Input")
+_motor = NodePath("CharacterBody2D")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Player"]
+script = ExtResource("4_djwrm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/CharacterBody2D"]
+shape = SubResource("RectangleShape2D_6yt1l")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 408.0
+offset_top = 600.0
+offset_right = 752.0
+offset_bottom = 627.0
+
+[node name="Menu" type="Button" parent="CanvasLayer"]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 64.0
+offset_bottom = 56.0
+text = "Menu
+"

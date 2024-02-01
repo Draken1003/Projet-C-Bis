@@ -1,0 +1,5 @@
+C:\Users\hetit\OneDrive\Documents\Multi language de code\c#\FirstApp\bin\Debug\net7.0\publish\FirstApp.exe
+C:\Users\hetit\OneDrive\Documents\Multi language de code\c#\FirstApp\bin\Debug\net7.0\publish\FirstApp.dll
+C:\Users\hetit\OneDrive\Documents\Multi language de code\c#\FirstApp\bin\Debug\net7.0\publish\FirstApp.deps.json
+C:\Users\hetit\OneDrive\Documents\Multi language de code\c#\FirstApp\bin\Debug\net7.0\publish\FirstApp.runtimeconfig.json
+C:\Users\hetit\OneDrive\Documents\Multi language de code\c#\FirstApp\bin\Debug\net7.0\publish\FirstApp.pdb

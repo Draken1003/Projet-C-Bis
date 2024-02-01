@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://cycb8uoc6fwvu"]
+
+[ext_resource type="PackedScene" uid="uid://cyoda8wrojxlh" path="res://scene/canvas_layer.tscn" id="1_ik7xg"]
+[ext_resource type="PackedScene" uid="uid://b3g7esfuxls1q" path="res://scene/terrain.tscn" id="1_kbs1d"]
+[ext_resource type="PackedScene" uid="uid://b3m4lxa1dch1k" path="res://objet.tscn" id="1_l818u"]
+[ext_resource type="PackedScene" uid="uid://tc6pqiuouf7r" path="res://scene/player.tscn" id="2_p0dsn"]
+[ext_resource type="AudioStream" uid="uid://bcnlingllkhej" path="res://Musique de scène daction.mp3" id="4_sd3dy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e6ow4"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_l1oo4"]
+sky_material = SubResource("ProceduralSkyMaterial_e6ow4")
+
+[sub_resource type="Environment" id="Environment_xhyin"]
+background_mode = 2
+sky = SubResource("Sky_l1oo4")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node3D"]
+
+[node name="objet" parent="." instance=ExtResource("1_l818u")]
+transform = Transform3D(0.6, 0, 0, 0, 0.54, 0, 0, 0, 0.6237, 10, -0.215473, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_p0dsn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 0)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_ik7xg")]
+visible = false
+
+[node name="Ground" parent="." instance=ExtResource("1_kbs1d")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xhyin")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sd3dy")
+volume_db = -20.0
+autoplay = true
+
+[editable path="objet"]

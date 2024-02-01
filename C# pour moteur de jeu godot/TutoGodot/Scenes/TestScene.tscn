@@ -1,0 +1,96 @@
+[gd_scene load_steps=18 format=3 uid="uid://dqpadvrpc8nif"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerInput.cs" id="1_qf8kj"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_vlugx"]
+[ext_resource type="Script" path="res://Scripts/CharacterMotor.cs" id="3_7rsbs"]
+[ext_resource type="Texture2D" uid="uid://bro00yxp6rafl" path="res://Sprites/Player1/frame-1.png" id="4_kyyje"]
+[ext_resource type="Texture2D" uid="uid://d1xpi2m7dyknj" path="res://Sprites/Player1/frame-2.png" id="5_eij4u"]
+[ext_resource type="Texture2D" uid="uid://dj5skxiolq4e6" path="res://Sprites/Player1/frame-3.png" id="6_awghk"]
+[ext_resource type="Texture2D" uid="uid://ldm4nhn6lx3t" path="res://Sprites/Player1/frame-4.png" id="7_n1s1n"]
+[ext_resource type="Texture2D" uid="uid://btn0va8rxrgk8" path="res://Sprites/Player1/frame-5.png" id="8_dhbab"]
+[ext_resource type="Texture2D" uid="uid://bsq4p5culgr0q" path="res://Sprites/Player1/frame-6.png" id="9_t0omr"]
+[ext_resource type="Texture2D" uid="uid://cjb05u4qg4r3w" path="res://Sprites/Player1/frame-7.png" id="10_d5o0y"]
+[ext_resource type="Texture2D" uid="uid://usfobadp0yye" path="res://Sprites/Player1/frame-8.png" id="11_r8wby"]
+[ext_resource type="Script" path="res://Scripts/CameraFollower.cs" id="12_dpumw"]
+[ext_resource type="PackedScene" uid="uid://138k6s0vdenn" path="res://Prefabs/Enemy.tscn" id="12_gyfpk"]
+[ext_resource type="Script" path="res://Scripts/Life.cs" id="13_6vsll"]
+[ext_resource type="PackedScene" uid="uid://cfyh5jp4ysomt" path="res://Prefabs/HUD.tscn" id="15_jqaye"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yym7n"]
+size = Vector2(146, 105)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x58uk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kyyje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eij4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_awghk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_n1s1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dhbab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t0omr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_d5o0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_r8wby")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 10.0
+}]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="Player" type="Node2D" parent="." node_paths=PackedStringArray("_input", "_motor", "_life")]
+script = ExtResource("1_vlugx")
+_input = NodePath("Inputs")
+_motor = NodePath("PlayerBody")
+_life = NodePath("Life")
+
+[node name="Inputs" type="Node" parent="Player"]
+script = ExtResource("1_qf8kj")
+
+[node name="PlayerBody" type="CharacterBody2D" parent="Player"]
+scale = Vector2(0.77, 0.77)
+script = ExtResource("3_7rsbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerBody"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_yym7n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/PlayerBody"]
+position = Vector2(-2.5974, 0)
+scale = Vector2(0.31, 0.31)
+sprite_frames = SubResource("SpriteFrames_x58uk")
+animation = &"Default"
+autoplay = "Default"
+
+[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("_objectToFollow")]
+position_smoothing_enabled = true
+script = ExtResource("12_dpumw")
+_objectToFollow = NodePath("../PlayerBody")
+
+[node name="Life" type="Node2D" parent="Player"]
+script = ExtResource("13_6vsll")
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("12_gyfpk")]
+position = Vector2(444.85, 0)
+_player = NodePath("../Player")
+_attackDistance = 200.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" node_paths=PackedStringArray("_life") instance=ExtResource("15_jqaye")]
+_life = NodePath("../../Player/Life")

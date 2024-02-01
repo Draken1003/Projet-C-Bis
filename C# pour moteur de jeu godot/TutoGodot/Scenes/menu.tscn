@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq7mgb3a8velx"]
+
+[ext_resource type="Script" path="res://Scripts/menu.cs" id="1_upx5u"]
+[ext_resource type="Texture2D" uid="uid://c2d6hhe5e8gbo" path="res://Prefabs/small-memory-lp-1920x1080.jpg" id="2_hl3cs"]
+[ext_resource type="Texture2D" uid="uid://x1e5kavmy56" path="res://icon.svg" id="3_3puie"]
+[ext_resource type="Texture2D" uid="uid://bfj4ue57m5jni" path="res://Prefabs/attachment_103697028-removebg-preview.png" id="4_ensen"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 425.0
+offset_right = 21.0
+offset_bottom = 425.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.08566, 1.81422)
+script = ExtResource("1_upx5u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(266.103, -53.4665)
+scale = Vector2(0.303, 0.333)
+texture = ExtResource("2_hl3cs")
+
+[node name="Godot_Logo" type="Sprite2D" parent="."]
+position = Vector2(523.096, 103.626)
+scale = Vector2(0.218324, 0.218324)
+texture = ExtResource("3_3puie")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(266.582, -109.689)
+scale = Vector2(0.581576, 0.581576)
+texture = ExtResource("4_ensen")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 229.664
+offset_top = -7.16562
+offset_right = 299.664
+offset_bottom = 93.8344
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.843137, 0.54902, 0.188235, 1)
+theme_override_colors/font_pressed_color = Color(0.933333, 0.521569, 0.0352941, 1)
+text = "PLAY"
+flat = true
+
+[node name="Option" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.843137, 0.54902, 0.188235, 1)
+theme_override_colors/font_pressed_color = Color(0.933333, 0.521569, 0.0352941, 1)
+text = "OPTION"
+flat = true
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.843137, 0.54902, 0.188235, 1)
+theme_override_colors/font_pressed_color = Color(0.933333, 0.521569, 0.0352941, 1)
+text = "QUIT"
+flat = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

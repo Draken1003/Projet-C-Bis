@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfyh5jp4ysomt"]
+
+[ext_resource type="Script" path="res://Scripts/HUD.cs" id="1_kii65"]
+[ext_resource type="Theme" uid="uid://cx5272diil5sk" path="res://Themes/UITheme.tres" id="2_iynrr"]
+
+[node name="HUD" type="Control" node_paths=PackedStringArray("_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kii65")
+_bar = NodePath("LifeBar")
+
+[node name="LifeBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 370.0
+offset_bottom = 50.0
+theme = ExtResource("2_iynrr")
+max_value = 1.0
+value = 1.0

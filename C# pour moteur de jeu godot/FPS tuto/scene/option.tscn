@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnjmqum106whj"]
+
+[ext_resource type="Script" path="res://option.cs" id="1_kdusi"]
+[ext_resource type="Shader" path="res://scene/menu.gdshader" id="2_tae4m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0606j"]
+shader = ExtResource("2_tae4m")
+shader_parameter/amount = 2.0
+
+[node name="option" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kdusi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0606j")
+offset_right = 1153.0
+offset_bottom = 646.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -33.0
+offset_right = 55.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.37189, 1.37189)
+alignment = 1
+
+[node name="Video" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Video"
+
+[node name="Audio" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Audio"
+
+[node name="BackFromOption" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -77.0
+offset_right = 91.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 31
+text = "Back"
+icon_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="BackFromOption" to="." method="_on_back_pressed"]

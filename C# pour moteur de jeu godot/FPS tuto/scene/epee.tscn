@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://60wvcqn40aee"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_w4v2t"]
+
+[sub_resource type="Animation" id="Animation_lukuq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.586431, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_50m6i"]
+resource_name = "frapper"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.585872, 0, 0), Vector3(-1.17595, 0, 0), Vector3(-0.586431, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xtvxi"]
+_data = {
+"RESET": SubResource("Animation_lukuq"),
+"frapper": SubResource("Animation_50m6i")
+}
+
+[node name="epee" type="Node3D"]
+transform = Transform3D(0.356882, 0, 0, 0, 0.276506, 0.132327, 0, -0.18371, 0.199168, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.125843, 0, 0, 0, 4.23903, 0, 0, 0, 0.237206, 0, 1.16663, 0)
+mesh = SubResource("BoxMesh_w4v2t")
+
+[node name="frapper" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xtvxi")
+}

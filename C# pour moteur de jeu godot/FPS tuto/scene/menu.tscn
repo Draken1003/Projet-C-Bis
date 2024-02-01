@@ -1,0 +1,203 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1fltgll7w6pd"]
+
+[ext_resource type="Script" path="res://scene/menu.cs" id="1_7gecn"]
+[ext_resource type="Shader" path="res://scene/menu.gdshader" id="2_rou4o"]
+[ext_resource type="PackedScene" uid="uid://bnjmqum106whj" path="res://scene/option.tscn" id="3_v4juw"]
+[ext_resource type="PackedScene" path="res://scene/video.tscn" id="4_0kajk"]
+[ext_resource type="PackedScene" uid="uid://j3d26c25y7ty" path="res://scene/audio.tscn" id="5_uonql"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0606j"]
+shader = ExtResource("2_rou4o")
+shader_parameter/amount = 2.0
+
+[node name="menu" type="Control"]
+process_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7gecn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0606j")
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 646.0
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -33.0
+offset_right = 55.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.37189, 1.37189)
+alignment = 1
+
+[node name="option" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Option"
+
+[node name="quitter" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Quitter
+"
+
+[node name="Option" parent="." instance=ExtResource("3_v4juw")]
+visible = false
+layout_mode = 1
+
+[node name="Video" parent="." instance=ExtResource("4_0kajk")]
+visible = false
+layout_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Video"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -87.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.12107, 2.12107)
+
+[node name="Labels" type="VBoxContainer" parent="Video/HBoxContainer"]
+layout_mode = 2
+
+[node name="FullScreen" type="Label" parent="Video/HBoxContainer/Labels"]
+layout_mode = 2
+text = "FullScreen"
+vertical_alignment = 1
+
+[node name="BorderLess" type="Label" parent="Video/HBoxContainer/Labels"]
+layout_mode = 2
+text = "BorderLess
+"
+vertical_alignment = 1
+
+[node name="VSync" type="Label" parent="Video/HBoxContainer/Labels"]
+layout_mode = 2
+text = "VSync
+"
+vertical_alignment = 1
+
+[node name="Checks" type="VBoxContainer" parent="Video/HBoxContainer"]
+layout_mode = 2
+
+[node name="FullScreen" type="CheckBox" parent="Video/HBoxContainer/Checks"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BorderLess" type="CheckBox" parent="Video/HBoxContainer/Checks"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VSync" type="CheckBox" parent="Video/HBoxContainer/Checks"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackFromVideo" type="Button" parent="Video"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -79.0
+offset_right = 90.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 31
+text = "Back"
+icon_alignment = 1
+
+[node name="Audio" parent="." instance=ExtResource("5_uonql")]
+visible = false
+layout_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -94.0
+offset_right = -45.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.39763, 2.39763)
+
+[node name="Labels" type="VBoxContainer" parent="Audio/HBoxContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="Audio/HBoxContainer/Labels"]
+layout_mode = 2
+text = "Master"
+
+[node name="Music" type="Label" parent="Audio/HBoxContainer/Labels"]
+layout_mode = 2
+text = "Music"
+
+[node name="Sound FX" type="Label" parent="Audio/HBoxContainer/Labels"]
+layout_mode = 2
+text = "Sound Fx"
+
+[node name="Slider" type="VBoxContainer" parent="Audio/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Master" type="HSlider" parent="Audio/HBoxContainer/Slider"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Music" type="HSlider" parent="Audio/HBoxContainer/Slider"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Sound FX" type="HSlider" parent="Audio/HBoxContainer/Slider"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="BackFromAudio" type="Button" parent="Audio"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -80.0
+offset_right = 91.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 31
+text = "Back"
+icon_alignment = 1
+
+[connection signal="pressed" from="Menu/option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="Menu/quitter" to="." method="_on_quitter_pressed"]
+[connection signal="toggled" from="Video/HBoxContainer/Checks/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="toggled" from="Video/HBoxContainer/Checks/BorderLess" to="." method="_on_border_less_toggled"]
+[connection signal="pressed" from="Video/BackFromVideo" to="Option" method="_on_back_pressed" flags=18]
+[connection signal="pressed" from="Audio/BackFromAudio" to="Option" method="_on_back_pressed" flags=18]
+
+[editable path="Option"]

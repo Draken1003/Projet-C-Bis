@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkk7y3n15bj0x"]
+
+[ext_resource type="Script" path="res://Scripts/menu.cs" id="1_mca6i"]
+[ext_resource type="Texture2D" uid="uid://c2d6hhe5e8gbo" path="res://Prefabs/small-memory-lp-1920x1080.jpg" id="2_exepr"]
+[ext_resource type="Texture2D" uid="uid://x1e5kavmy56" path="res://icon.svg" id="3_3jr1q"]
+[ext_resource type="Texture2D" uid="uid://bfj4ue57m5jni" path="res://Prefabs/attachment_103697028-removebg-preview.png" id="4_1kqgt"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 492.0
+offset_right = 24.0
+offset_bottom = 492.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.88566, 1.81422)
+script = ExtResource("1_mca6i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(291.675, -90.9482)
+scale = Vector2(0.338, 0.333)
+texture = ExtResource("2_exepr")
+
+[node name="Godot_Logo" type="Sprite2D" parent="."]
+position = Vector2(573.804, 63.9393)
+scale = Vector2(0.218324, 0.218323)
+texture = ExtResource("3_3jr1q")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(54.6228, -204.496)
+scale = Vector2(0.267426, 0.267426)
+texture = ExtResource("4_1kqgt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 236.522
+offset_right = 311.522
+offset_bottom = 66.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Volume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "VOLUME"
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "BACK"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

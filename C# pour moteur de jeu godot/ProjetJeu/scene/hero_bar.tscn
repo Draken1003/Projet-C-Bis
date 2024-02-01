@@ -1,0 +1,218 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3l10jncsagc0"]
+
+[ext_resource type="Script" path="res://script/hero_bar.cs" id="1_7f2hv"]
+[ext_resource type="PackedScene" uid="uid://cyla5mhyt8e5b" path="res://scene/hero.tscn" id="2_xitah"]
+[ext_resource type="PackedScene" uid="uid://6l1q2jirk13f" path="res://scene/buttonLevelUp.tscn" id="3_sy6jf"]
+
+[sub_resource type="Animation" id="Animation_ryqbu"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("open:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(268, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("open:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_7yekp"]
+resource_name = "open"
+length = 0.772
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(266, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("open:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(534, -0.25, 0, 0.25, 0, 268, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("open:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+
+[sub_resource type="Animation" id="Animation_uwsd6"]
+resource_name = "close"
+length = 0.7955
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 266, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("open:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(268, -0.25, 0, 0.25, 0, 534, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("open:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2puqf"]
+_data = {
+"RESET": SubResource("Animation_ryqbu"),
+"close": SubResource("Animation_7yekp"),
+"open": SubResource("Animation_uwsd6")
+}
+
+[node name="heroBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7f2hv")
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 0
+offset_right = 39.9999
+offset_bottom = 40.0
+scale = Vector2(6.72, 16.16)
+
+[node name="hero" parent="Container" instance=ExtResource("2_xitah")]
+position = Vector2(-29.7619, -2.10396)
+scale = Vector2(0.100542, 0.0418093)
+
+[node name="buttonLevelUp" parent="Container/hero" instance=ExtResource("3_sy6jf")]
+offset_left = 94.7252
+offset_top = -291.576
+offset_right = 94.7252
+offset_bottom = -291.576
+scale = Vector2(0.949245, 0.949245)
+
+[node name="hero2" parent="Container" instance=ExtResource("2_xitah")]
+position = Vector2(-29.7619, 1.9802)
+scale = Vector2(0.100542, 0.0418093)
+
+[node name="buttonLevelUp" parent="Container/hero2" instance=ExtResource("3_sy6jf")]
+offset_left = 94.7252
+offset_top = -291.576
+offset_right = 94.7252
+offset_bottom = -291.576
+scale = Vector2(0.949245, 0.949245)
+
+[node name="hero3" parent="Container" instance=ExtResource("2_xitah")]
+position = Vector2(-29.7619, 6.31188)
+scale = Vector2(0.100542, 0.0418093)
+
+[node name="buttonLevelUp" parent="Container/hero3" instance=ExtResource("3_sy6jf")]
+offset_left = 94.7252
+offset_top = -291.576
+offset_right = 94.7252
+offset_bottom = -291.576
+scale = Vector2(0.949245, 0.949245)
+
+[node name="open" type="Button" parent="."]
+layout_mode = 0
+offset_left = 268.0
+offset_right = 316.0
+offset_bottom = 45.0
+text = "open"
+
+[node name="Open_Close" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
+libraries = {
+"": SubResource("AnimationLibrary_2puqf")
+}
+
+[connection signal="pressed" from="open" to="." method="_on_open_pressed"]

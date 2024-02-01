@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0vloofohilhn"]
+
+[ext_resource type="PackedScene" uid="uid://6l1q2jirk13f" path="res://scene/buttonLevelUp.tscn" id="1_imk4p"]
+[ext_resource type="PackedScene" uid="uid://cyla5mhyt8e5b" path="res://scene/hero.tscn" id="2_rwsdt"]
+[ext_resource type="PackedScene" uid="uid://bynjd8gnhcbhs" path="res://scene/money.tscn" id="3_cbuj4"]
+[ext_resource type="PackedScene" uid="uid://c3l10jncsagc0" path="res://scene/hero_bar.tscn" id="5_v7geq"]
+
+[node name="Jeu" type="Node2D"]
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -25.0
+offset_right = 1200.0
+offset_bottom = 682.0
+scale = Vector2(0.97234, 0.97234)
+color = Color(0.337255, 0.352941, 0.392157, 1)
+
+[node name="Money" parent="." instance=ExtResource("3_cbuj4")]
+offset_left = 25.0
+offset_top = -181.0
+offset_right = 25.0
+offset_bottom = -181.0
+
+[node name="buttonLevelUp" parent="." node_paths=PackedStringArray("_hero", "_money") instance=ExtResource("1_imk4p")]
+visible = false
+offset_top = -15.0
+offset_bottom = -15.0
+_hero = NodePath("../hero")
+_money = NodePath("../Money")
+
+[node name="heroBar" parent="." instance=ExtResource("5_v7geq")]
+offset_left = -269.0
+offset_top = 334.0
+offset_right = -269.0
+offset_bottom = 334.0
+
+[node name="buttonLevelUp" parent="heroBar/Container/hero" index="1" node_paths=PackedStringArray("_hero", "_money")]
+_hero = NodePath("..")
+_money = NodePath("../../../../Money")
+
+[node name="buttonLevelUp" parent="heroBar/Container/hero2" index="1" node_paths=PackedStringArray("_hero", "_money")]
+_hero = NodePath("..")
+_money = NodePath("../../../../Money")
+
+[node name="buttonLevelUp" parent="heroBar/Container/hero3" index="1" node_paths=PackedStringArray("_hero", "_money")]
+_hero = NodePath("..")
+_money = NodePath("../../../../Money")
+
+[node name="hero" parent="." instance=ExtResource("2_rwsdt")]
+visible = false
+position = Vector2(109, 144)
+
+[editable path="heroBar"]

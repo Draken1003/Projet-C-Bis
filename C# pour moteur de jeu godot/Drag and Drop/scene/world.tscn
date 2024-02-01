@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfskiyvrvbr1q"]
+
+[ext_resource type="PackedScene" uid="uid://eae0mx2w4jql" path="res://scene/platform.tscn" id="1_0vnas"]
+[ext_resource type="PackedScene" uid="uid://bws4v270a4q3e" path="res://scene/object.tscn" id="2_d58c3"]
+
+[node name="world" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -55.0
+offset_top = -32.0
+offset_right = -15.0
+offset_bottom = 8.0
+scale = Vector2(31.7348, 17.7292)
+color = Color(0.4, 0, 0.403922, 1)
+
+[node name="platform" parent="." instance=ExtResource("1_0vnas")]
+position = Vector2(135, 445)
+
+[node name="platform2" parent="." instance=ExtResource("1_0vnas")]
+position = Vector2(702, 468)
+
+[node name="platform3" parent="." instance=ExtResource("1_0vnas")]
+position = Vector2(518, 134)
+
+[node name="object" parent="." instance=ExtResource("2_d58c3")]
+position = Vector2(902, 212)

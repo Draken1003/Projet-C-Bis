@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://cycb8uoc6fwvu"]
+
+[ext_resource type="PackedScene" uid="uid://b3g7esfuxls1q" path="res://scene/terrain.tscn" id="1_oengf"]
+[ext_resource type="PackedScene" uid="uid://tc6pqiuouf7r" path="res://scene/player.tscn" id="2_ek2mm"]
+[ext_resource type="PackedScene" uid="uid://b3m4lxa1dch1k" path="res://objet.tscn" id="3_k1rhu"]
+[ext_resource type="AudioStream" uid="uid://bcnlingllkhej" path="res://Musique de scène daction.mp3" id="4_hdfg2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fnkrs"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_26yw3"]
+sky_material = SubResource("ProceduralSkyMaterial_fnkrs")
+
+[sub_resource type="Environment" id="Environment_qkmjg"]
+background_mode = 2
+sky = SubResource("Sky_26yw3")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="world" type="Node3D"]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_ek2mm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.71604, 0.145482, 0)
+
+[node name="Ground" parent="." instance=ExtResource("1_oengf")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qkmjg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="objet" parent="." instance=ExtResource("3_k1rhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8803, -0.398375, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hdfg2")
+volume_db = -15.35
+autoplay = true

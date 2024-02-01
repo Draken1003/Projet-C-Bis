@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw2n2l6htwsa5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cf5a"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4wn1"]
+bg_color = Color(0.423529, 0.423529, 0.423529, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mang8"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6tgb"]
+bg_color = Color(0.466667, 0.635294, 0.658824, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SprintBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 0
+offset_left = 348.0
+offset_top = 590.0
+offset_right = 798.0
+offset_bottom = 610.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1cf5a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u4wn1")
+value = 100.0
+show_percentage = false
+
+[node name="lumiereBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 0
+offset_left = 45.0
+offset_top = 357.0
+offset_right = 53.0
+offset_bottom = 609.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mang8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b6tgb")
+value = 100.0
+fill_mode = 2
+show_percentage = false
+
+[node name="endurance" type="Label" parent="."]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 621.0
+offset_right = 618.0
+offset_bottom = 647.0
+text = "Endurance"
+horizontal_alignment = 1
+
+[node name="batterie" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 619.0
+offset_right = 86.0
+offset_bottom = 645.0
+scale = Vector2(1.00113, 1)
+text = "Batterie"
+horizontal_alignment = 1
